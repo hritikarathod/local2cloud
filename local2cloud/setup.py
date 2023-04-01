@@ -21,7 +21,9 @@ setuptools.setup(
     install_requires=[
                       'boto3',
                       'google-cloud-storage' ,
-                      'oauth2client'                    
+                      'oauth2client',
+                      'pytest',
+                      'pytest-cov'                
                       ],
     package_dir = {"": "scripts"},
     packages = setuptools.find_packages(where="scripts"),

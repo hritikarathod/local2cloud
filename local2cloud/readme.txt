@@ -83,7 +83,7 @@ Upload files to cloud
 
     `cd local2cloud/`
 
-2. Install requirements
+2. If the module is already installed then go to step 3, otherwise install requirements
 
     `pip install -r requirements.txt`
 

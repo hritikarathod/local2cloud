@@ -75,23 +75,15 @@ Upload files to cloud
     
 # Steps to check Pytest Coverage
 
-1. Open Terminal, go to local2cloud path and activate virtualenv, then go to next local2cloud directory path
+1. Open Terminal, go to local2cloud path and activate virtualenv, then go to next local2cloud/scrips directory path
 
     `cd local2cloud/`
 
     `source venv/bin/activate`
 
-    `cd local2cloud/`
+    `cd local2cloud/scripts/`
 
-2. Install requirements
-
-    `pip install -r requirements.txt`
-
-3. Go to next folder path in terminal
-
-    `cd scripts/`
-
-4. Open "local2cloud/local2cloud/scripts/tests/static/creds/" folder, and update google cloud storage credentials for the follwoing keys in the "creds.json" file.
+2. Open "local2cloud/local2cloud/scripts/tests/static/creds/" folder, and update google cloud storage credentials for the follwoing keys in the "creds.json" file.
 
     * project_id
     * private_key_id
@@ -100,7 +92,7 @@ Upload files to cloud
     * client_id
     * client_x509_cert_url
 
-5. Open "local2cloud/local2cloud/scripts/tests/" folder, and update AWS and google cloud storage credentials for the follwoing variables in the "test_tranfer.py" file.
+3. Open "local2cloud/local2cloud/scripts/tests/" folder, and update AWS and google cloud storage credentials for the follwoing variables in the "test_transfer.py" file.
 
     * AWS_ACCESS_KEY_ID
     * AWS_SECRET_ACCESS_KEY
@@ -108,11 +100,11 @@ Upload files to cloud
     * GOOGLE_BUCKET_NAME
 
 
-6. Run the test cases
+4. Run the test cases
 
     `python -m pytest tests`
 
-7. Check coverage
+5. Check coverage
 
     `python -m pytest --cov --cov-report=html:coverage_re`
 
