@@ -1,0 +1,43 @@
+All the required modules/packages for the project are mentioned in the requirements.txt.
+
+* "boto3" is used for AWS S3
+* "google-cloud-storage" and "oauth2client" is used for google cloud storage
+* "pytest" and "pytest-cov" is used for execute test cases and to check coverage.
+
+Module codes are mentioned in the "transfer.py" file on "/local2cloud/local2cloud/scripts/transfer.py" path.
+Where we have three functions-
+
+1. get_files
+This function accepts the path of a directory where we have all the files(images,media,documents). Function will walk through the directory and its subdirectories and fetch all the files, and saperate all the images,media, and documents files. "get_files" will return a dictionary in the following format:
+
+{
+    "images": [ LIST_OF_IMAGES ],
+    "media": [ LIST_OF_MEDIA ],
+    "documents": [ LIST_OF_DOCUMENTS ]
+}
+
+2. aws_upload
+This function accepts the list of all the images and media files (file paths), and AWS credentials. The function first connects to AWS S3 and then upload all the files to s3 bucket.
+
+3. gcloud_upload
+This function accepts the list of all the documents (file paths), and Google Cloud Storage credentials json file path and bucket name. The function first connects to Google Cloud Storage and then upload all the files to bucket.
+
+Example to use the functions-
+
+'''
+from local2cloud.scripts import transfer
+
+response = transfer.get_files(DIR_PATH)
+
+transfer.aws_upload(response["images], AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, BUCKET_NAME)
+transfer.aws_upload(response["media], AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, BUCKET_NAME)
+transfer.gcloud_upload(response["documents], CREDS_FILE, BUCKET_NAME)
+'''
+
+Test cases are available in the "test_transfer.py" file on "/local2cloud/local2cloud/scripts/tests/test_transfer.py". 
+Just next to the "test_transfer.py", there is a static folder where we have some files(images,media and documents) for testing. 
+Along with this, we have "creds.json" file in the "creds" folder on "/local2cloud/local2cloud/scripts/tests/static/creds" path. This file requires the google cloud credentials.
+If you want to check the test cases then follow the steps mentioned in the README.md, but before that don't forget to update AWS credentials in the "test_transfer.py" file and google cloud credentials in the "creds.json" file. (what needs to be updated is already mentioned in the readme)
+
+
+
