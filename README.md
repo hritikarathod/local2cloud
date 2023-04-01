@@ -75,7 +75,7 @@ Upload files to cloud
     
 # Steps to check Pytest Coverage
 
-1. Open Terminal, go to local2cloud path and activate virtualenv, then go to next local2cloud/scrips directory path
+1. Open Terminal, go to local2cloud path and activate virtualenv, then go to next local2cloud/scripts directory path
 
     `cd local2cloud/`
 
